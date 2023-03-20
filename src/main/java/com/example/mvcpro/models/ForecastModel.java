@@ -1,6 +1,6 @@
 package com.example.mvcpro.models;
 
-public class ForecastModel {
+public class ForecastModel { //kintamuosius laikome .
     public String date;
     public double temperature;
     public ForecastModel(String date, double temperature){
