@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 @Controller
-public class ForecastController {
+public class ForecastController { //dirba su html
     @GetMapping("/")
     public ModelAndView index(@RequestParam(required = false) String cityCode) throws IOException {
         var modelAndView = new ModelAndView("index");
