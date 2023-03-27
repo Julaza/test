@@ -8,6 +8,8 @@ public class IndexModel { // talpyklos, info kuria norim tureti
 
     public String currentCityCode;
 
+    public String userName;
+
 
 
 }
