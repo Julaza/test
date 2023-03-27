@@ -22,6 +22,10 @@
 
 <div class="forecast-block container">
 
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+
     <div th:if="${IndexModel.currentCityCode}"></div>
     <div th:unless="${IndexModel.currentCityCode}">Pasirinkite miesta</div>
 
