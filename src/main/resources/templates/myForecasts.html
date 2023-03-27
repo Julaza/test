@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>My Meteo Page</title>
 </head>
 <body>
 
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
-</form>
+<div style="float:right">
+    <form align="right" name="form1" method="post" action="log_out.php">
+        <label class="logoutLblPos">
+            <input name="submit2" type="submit" id="submit2" value="log out">
+        </label>
+    </form>
+</div>
 
 <ul th:each="forecast : ${myForecasts}">
   <li>
