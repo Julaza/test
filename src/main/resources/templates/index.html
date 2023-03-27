@@ -37,13 +37,13 @@
         <input type="submit" value="Sign Out"/>
     </form>-->
 
-<!--    <div style="float:right">
+   <div style="float:right">
         <form align="right" name="form1" method="post" action="log_out.php">
             <label class="logoutLblPos">
                 <input name="submit2" type="submit" id="submit2" value="log out">
             </label>
         </form>
-    </div>-->
+    </div>
 
     <div th:if="${IndexModel.currentCityCode}"></div>
     <div th:unless="${IndexModel.currentCityCode}">Pasirinkite miesta</div>
