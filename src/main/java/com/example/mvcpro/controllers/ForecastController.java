@@ -83,10 +83,9 @@ public class ForecastController { //dirba su html
         Root obj = createObj(json);
 
         for (var stamp : obj.forecastTimestamps) {
-            var forecast = new ForecastModel(stamp.forecastTimeUtc, stamp.airTemperature);
+            var forecast = new ForecastModel(cityCode, stamp.forecastTimeUtc, stamp.airTemperature);
             forecasts.add(forecast);
         }
-
         return forecasts;
     }
 
@@ -113,5 +112,4 @@ public class ForecastController { //dirba su html
         scanner.close();
         return text;
     }
-
 }

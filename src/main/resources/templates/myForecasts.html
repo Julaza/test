@@ -37,6 +37,7 @@
     </style>
 </head>
 <body>
+<a href="/">Main page</a>
 
 <table class="table table-bordered border-success" style="width: 40%">
     <style>
@@ -52,12 +53,15 @@
     </style>
     <thead>
     <tr class="table-active">
+        <th>City</th>
         <th>Date & Time</th>
         <th>Temperature</th>
+
     </tr>
     </thead>
     <tbody>
     <tr th:each="forecast : ${myForecasts}">
+        <td th:text="${forecast.city}"></td>
         <td th:text="${forecast.date}"></td>
         <td th:text="${forecast.temperature}"></td>
     </tr>

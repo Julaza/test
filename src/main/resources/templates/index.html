@@ -21,6 +21,8 @@
 </head>
 <body>
 
+<a href="/my-forecasts">saved forecast data</a>
+
 <div class="forecast-block container">
 
     <div>
@@ -36,6 +38,7 @@
 <!--    <form th:action="@{/logout}" method="post">
         <input type="submit" value="Sign Out"/>
     </form>-->
+
 
    <div style="float:right">
         <form align="right" name="form1" method="post" action="log_out.php">
@@ -63,14 +66,16 @@
         <table id="myTable" class="table mt-3">
             <thead>
             <tr>
-                <th scope="col">Data</th>
-                <th scope="col">Temperatura</th>
+                <th scope="col">City</th>
+                <th scope="col">Date</th>
+                <th scope="col">Temperature</th>
                 <th scope="col"></th>
             </tr>
             </thead>
 
             <tbody>
             <tr th:each="forecast : ${IndexModel.forecasts}">
+                <td class="city-value" th:text="${forecast.city}"></td>
                 <td class="date-value" th:text="${forecast.date}"></td>
                 <td class="temperature-value" th:text="${forecast.temperature}"></td>
                 <td>
@@ -98,6 +103,7 @@
 
     function save(el) {
         var parent = el.parentElement.parentElement;
+        var city = parent.getElementsByClassName("city-value")[0].textContent;
         var date = parent.getElementsByClassName("date-value")[0].textContent;
         var temperature = parent.getElementsByClassName("temperature-value")[0].textContent;
 
@@ -105,6 +111,7 @@
             url: "http://localhost:8080/api/forecast",
             type: "POST",
             data: JSON.stringify({
+                "city": city,
                 "date": date,
                 "temperature": temperature
             }),
