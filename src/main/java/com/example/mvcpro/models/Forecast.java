@@ -26,5 +26,12 @@ public class Forecast {
 
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }
 // repository - traukia duomenis is duomenu bazes
