@@ -21,7 +21,24 @@
 </head>
 <body>
 
-<a href="/my-forecasts">saved forecast data</a>
+<!--<a href="/my-forecasts" class="btn btn-success">My Forecasts</a>-->
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/my-forecasts">My Forecasts</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <form action="/logout" method="post">
+                    <button type="submit" class="btn btn-link btn-sm">Log Out</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 
 <div class="forecast-block container">
 
@@ -29,23 +46,6 @@
        <h4> <span>Welcome</span>
         <span th:text="${IndexModel.userName}"></span>
         <span>!</span></h4>
-    </div>
-
-
-
-
-
-<!--    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out"/>
-    </form>-->
-
-
-   <div style="float:right">
-        <form align="right" name="form1" method="post" action="log_out.php">
-            <label class="logoutLblPos">
-                <input name="submit2" type="submit" id="submit2" value="log out">
-            </label>
-        </form>
     </div>
 
     <div th:if="${IndexModel.currentCityCode}"></div>
