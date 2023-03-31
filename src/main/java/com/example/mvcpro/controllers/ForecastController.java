@@ -75,7 +75,6 @@ public class ForecastController { //dirba su html
         return cities;
     }
 
-
     private  static ArrayList<ForecastModel> getForecast(String cityCode) throws IOException{
         var forecasts = new ArrayList<ForecastModel>();
 
@@ -112,4 +111,5 @@ public class ForecastController { //dirba su html
         scanner.close();
         return text;
     }
+
 }
