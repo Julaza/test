@@ -8,12 +8,16 @@
     <link href="http://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <style>
-        .forecast-block {
-            margin-top: 50px;
+        table {
+            border-collapse: collapse;
+            border: 3px solid black;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .ok {
-            color: darkgreen;
-            display: none;
+        th, td {
+            padding: 15px;
+            border: 3px solid black;
+            text-align: center;
         }
 
     </style>
@@ -37,7 +41,7 @@
     </div>
 </nav>
 
-<table class="table table-bordered border-success" style="width: 40%">
+<table class="table table-bordered border-success" style="width: 90%">
     <style>
         table {
             border-collapse: collapse;
@@ -51,7 +55,6 @@
     </style>
     <thead>
     <tr class="table-active">
-        <th class="text-center">Id</th>
         <th class="text-center">City</th>
         <th class="text-center">Date&Time</th>
         <th class="text-center">Temperature</th>
@@ -60,14 +63,16 @@
     </thead>
     <tbody>
     <tr th:each="forecast : ${myForecasts}">
-        <td th:text="${forecast.id}" class="text-center"></td>
         <td th:text="${forecast.city}" class="text-center"></td>
         <td th:text="${forecast.date}" class="text-center"></td>
         <td th:text="${forecast.temperature}" class="text-center"></td>
         <td class="text-center">
-            <a href="delete?id={forecast.id}" class="btn btn-outline-danger" onclick="delete(this)">Delete</a>
+            <form th:action="'/my-forecasts/' + ${forecast.getId()} + '/remove'" method="post">
+                <button class="btn btn-danger">Delete
+                    <i class="bi bi-trash"></i>
+                </button>
+            </form>
         </td>
-
     </tr>
     </tbody>
 </table>

@@ -47,7 +47,7 @@
     </div>
 
     <div th:if="${IndexModel.currentCityCode}"></div>
-    <div th:unless="${IndexModel.currentCityCode}">Pasirinkite miesta</div>
+    <div th:unless="${IndexModel.currentCityCode}">Choose city</div>
 
     <form method="get" class="mb-2">
         <select name="cityCode" onchange="this.form.submit()">
@@ -78,7 +78,7 @@
                 <td class="temperature-value" th:text="${forecast.temperature}"></td>
                 <td>
                     <button class="btn btn-success" onclick="save(this)">
-                        <i class="bi bi-cloud-download"></i> issaugoti
+                        <i class="bi bi-cloud-download"></i> save
                     </button>
                     <i class="ok bi bi-check-circle"></i>
                 </td>

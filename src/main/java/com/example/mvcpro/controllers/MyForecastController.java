@@ -1,5 +1,6 @@
 package com.example.mvcpro.controllers;
 
+import ch.qos.logback.core.model.Model;
 import com.example.mvcpro.models.*;
 import com.example.mvcpro.repositories.ForecastRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -31,6 +32,12 @@ public class MyForecastController { //dirba su html
 
         modelAndView.addObject("myForecasts", model);
         return modelAndView;
+    }
+    @PostMapping("/my-forecasts/{id}/remove")
+    public String delete(@PathVariable(value = "id") int id, Model model) {
+        Forecast entity = forecastRepository.findById(id).orElseThrow();
+        forecastRepository.delete(entity);
+        return "redirect:/my-forecasts";
     }
 
 }

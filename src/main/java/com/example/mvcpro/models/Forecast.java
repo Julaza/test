@@ -22,6 +22,8 @@ public class Forecast {
         this.city = city;
         this.userId = userId;
     }
+
+
     public Forecast(){
 
     }
