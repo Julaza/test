@@ -69,7 +69,9 @@ public class ForecastController { //dirba su html
             var p = new Place();
             p.code = place.code;
             p.name = place.name;
+            cities.add(p);
             cities.add(place);
+            String output = p.name.substring(0, 1).toUpperCase() + p.name.substring(1); //
         }
 
         return cities;
@@ -81,8 +83,13 @@ public class ForecastController { //dirba su html
         var json = loadDataJson("https://api.meteo.lt/v1/places/" + cityCode +"/forecasts/long-term");
         Root obj = createObj(json);
 
+        String str =" " ;
+        String firstLetter = cityCode.substring(0,1).toUpperCase();
+        String endOfString = cityCode.substring(1);
+        str = firstLetter + endOfString;
+
         for (var stamp : obj.forecastTimestamps) {
-            var forecast = new ForecastModel(cityCode, stamp.forecastTimeUtc, stamp.airTemperature);
+            var forecast = new ForecastModel(str, stamp.forecastTimeUtc, stamp.airTemperature);
             forecasts.add(forecast);
         }
         return forecasts;
@@ -93,7 +100,6 @@ public class ForecastController { //dirba su html
         Root obj = om.readValue(json, Root.class);
         return obj;
     }
-
 
     private static String loadDataJson(String apiUrl) throws IOException{
     URL url = new URL(apiUrl);
